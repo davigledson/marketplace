@@ -1,11 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>MVC Exemplo Node.JS</title>
+  <link href="https://getbootstrap.com/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://icons.getbootstrap.com/assets/font/bootstrap-icons.css">
+
 </head>
+
 <body>
-    HOME
+  <div class="container">
+    <br />
+    <div class="d-flex justify-content-between">
+      <h2 class="m-2"><i class="bi bi-arrow-through-heart"></i> Lojinha</h2>
+      <div><a class="btn" href="/carrinho"></i>Ir para carrinho <i class="bi bi-basket"></i></a></div>
+    </div>
+    <br />
+    <% if (produtos.length> 0) { %>
+      <div class="row justify-content-between">
+        <% for(var i=0; i < produtos.length; i++) {%>
+          <div class="card col-3 jumbotron p-3 m-2">
+            <div>
+              <img src="<%= produtos[i].imagem %>" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <div class="card-title">
+                  <%= produtos[i].titulo %>
+                </div>
+                <p class="card-text fs-3 text-danger">
+                  R$ <%= produtos[i].preco %>
+                </p>
+                <button id="<%= produtos[i].id %>" onclick="window.adicionarProduto(' <%= encodeURI(JSON.stringify(produtos[i])) %>', '<%= produtos[i].id %>' )" class="btn btn-success" type="button">
+                  Adicionar ao carrinho
+                </button>
+              </div>
+            </div>
+          </div>
+          <% } %>
+      </div>
+      <% } %>
+  </div>
 </body>
+<script>
+  function adicionarProduto(obj, id) {
+    document.getElementById(id).innerHTML = "Adicionado";
+    document.getElementById(id).className = "btn btn-info";
+
+    fetch("/carrinho?produto="+obj, {
+      method: "POST",
+    })
+    .then(response => response.json())
+    .then((data) => {
+      window.location.href = data.redirect
+    }
+    )
+  }
+</script>
 </html>
