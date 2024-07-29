@@ -1,13 +1,13 @@
 {
   "dependencies": {
+    "body-parser": "^1.20.2",
     "consign": "^0.1.6",
+    "cross-fetch": "^3.1.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "pg": "^8.12.0",
-    "fs": "0.0.1-security",   
-    "node-sessionstorage": "^1.0.0", 
-    "cross-fetch": "^3.1.5"
-    
+    "fs": "0.0.1-security",
+    "node-sessionstorage": "^1.0.0",
+    "pg": "^8.12.0"
   },
   "__comments": [
     "fs - sistema de arquivo do node",
@@ -22,7 +22,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
-  
   },
   "author": "",
   "license": "ISC",
