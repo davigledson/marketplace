@@ -128,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
           console.log(data);
             if (data.success) {
                // window.location.href = "/usuario"; // ou outra página de sucesso
+               sessionStorage.setItem('usuario',JSON.stringify(data.success));
             } else {
                 alert("Falha na autenticação: " + data.error);
             }
