@@ -1,0 +1,87 @@
+<script>
+function chamarCard(){
+
+    const card = document.querySelector(".card_login");
+ 
+    if (card.style.display === 'block') {
+         card.style.display = 'none';
+     } else {
+         card.style.display = 'block';
+     }
+   }
+   const btns = document.querySelectorAll(".btn_login");
+   btns.forEach(function(btn) {
+    btn.addEventListener('click', chamarCard);
+});;
+ 
+ 
+
+ 
+ //faz login no autenticar
+ document.addEventListener("DOMContentLoaded", function() {
+     const loginForm = document.getElementById("form_login");
+ 
+     loginForm.addEventListener("submit", function(event) {
+         event.preventDefault();
+ 
+         const email = document.getElementById("email").value;
+         const senha = document.getElementById("senha").value;
+ 
+         const payload = {
+             email: email,
+             senha: senha
+         };
+ 
+         fetch("/autenticar", {
+             method: "POST",
+             headers: {
+                 "Content-Type": "application/json"
+             },
+             body: JSON.stringify(payload)
+         })
+         .then(response => response.json())
+         .then(data => {
+           console.log(data);
+             if (data.success) {
+                // window.location.href = "/usuario"; // ou outra página de sucesso
+                sessionStorage.setItem('usuario_logado',JSON.stringify(data.success));
+ 
+               
+                 login_info = document.getElementById('login-info');
+                 login_info.classList = 'alert alert-success';
+                 login_info.innerText = `Bem-vindo, ${data.success.nome}! `;
+                 document.dispatchEvent(atualizarUsuarioEvent);
+          
+ 
+             } else {
+                 alert("Falha na autenticação: " + data.error);
+             }
+         })
+         .catch(error => {
+             console.error("Erro na autenticação:", error);
+         });
+     });
+ });
+ 
+ //se o usuario logar, vai pegar as informações no session storage so usuario e renderizar na pagina
+ const atualizarUsuarioEvent = new Event('atualizarUsuario');
+ 
+ document.addEventListener('atualizarUsuario', () => {
+     const usuario_logado = sessionStorage.getItem('usuario_logado');
+     if (usuario_logado) {
+       usuarioInfo(usuario_logado);
+     }
+ });
+ const usuario_logado = sessionStorage.getItem('usuario_logado');
+ if (usuario_logado) {
+   usuarioInfo(usuario_logado);
+ }
+ 
+ //atribuir as informaçoes do usuario
+ function usuarioInfo(usuario_logado){
+         const usuario = JSON.parse(usuario_logado);
+         document.getElementById('usuario-nome').innerText = `${usuario.nome}`;
+ }
+ 
+</script>
+

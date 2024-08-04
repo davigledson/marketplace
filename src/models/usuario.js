@@ -1,7 +1,7 @@
 var fs = require('fs');
 var SessionStorage = require('node-sessionstorage');
 const sessionStorage = SessionStorage;
-const userDadosStorage = "userDadosStorage";
+const usuario_logado = "usuario_logado";
 class usuario {
 
     buscarPorId(id,callback){
@@ -30,6 +30,7 @@ class usuario {
                         usuario = u;
                        
                         
+                        
                         break;
                     }
                 }
@@ -51,12 +52,11 @@ class usuario {
             callback(err,dados);
         });
     }
-    buscarNoLocalStorage(callback){
-        const usuario = sessionStorage.getItem(userDadosStorage);
-           
-            callback(null,usuario);
-       
-    }
+    //se faz no front-end
+    // buscarNoLocalStorage(callback){
+    //     const usuario = sessionStorage.getItem(usuario_logado);
+    //         callback(null,usuario); 
+    // }
 }
 
 module.exports = function(){

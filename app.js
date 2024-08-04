@@ -9,7 +9,8 @@ app.set('views','./src/views');
 // Configurar o Body-Parser para analisar application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use(express.static('src/public'));
+ 
 
 consign()
     .include('src/routes')
