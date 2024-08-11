@@ -77,11 +77,25 @@ function chamarCard(){
    usuarioInfo(usuario_logado);
  }
  
- //atribuir as informaçoes do usuario
+ //atribuir as informaçoes do usuario na pagina
  function usuarioInfo(usuario_logado){
          const usuario = JSON.parse(usuario_logado);
          document.getElementById('usuario-nome').innerText = `${usuario.nome}`;
+         document.getElementById('dropdown-menu').classList.add('visibility')
+         document.getElementById('dropdown-menu').classList.remove('invisible')
  }
+ const btns_sair = document.querySelectorAll(".btn_sair");
+ btns_sair.forEach(function(btn){
+    btn.addEventListener('click',()=> {
+        console.log("oal");
+    const usuario_logado = sessionStorage.getItem('usuario_logado');
+    if(usuario_logado){
+        sessionStorage.removeItem('usuario_logado');
+        location.reload();
+    }
+    });
+ });
+
  
 </script>
 

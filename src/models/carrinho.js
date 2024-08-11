@@ -1,5 +1,7 @@
 var SessionStorage = require('node-sessionstorage');
 const sessionStorage = SessionStorage;
+// session store do lado do servidor
+
 const CARRINHO = "carrinho";
 class products {
   buscar(callback) {
