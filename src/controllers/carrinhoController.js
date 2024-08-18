@@ -1,8 +1,16 @@
 const buscarProdutos = function(application, req, res) {
     const produtos = new application.src.models.carrinho();
+    const navegacao = {
+      icone:'bi bi-basket',
+      titulo:'Carrinho',
+}
+
   
     produtos.buscar(function(err, result) {
-      res.render("carrinho", { produtos: result });
+      res.render("carrinho", { 
+        produtos: result,
+        nav: navegacao
+       });
     });
   }
   

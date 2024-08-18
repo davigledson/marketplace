@@ -11,6 +11,14 @@ module.exports = function(application){
     application.post('/carrinho', function(req, res){
       application.src.controllers.carrinhoController.adicionarProduto(application, req, res);
     });
+
+    application.get('/anuncie', function(req, res){
+      application.src.controllers.anuncieController.buscarProdutos(application, req, res);
+    });
+  
+    application.post('/anuncie', function(req, res){
+      application.src.controllers.anuncieController.adicionarProduto(application, req, res);
+    });
   
     application.delete('/carrinho/:id', function(req, res){
       application.src.controllers.carrinhoController.removerProdutos(application, req, res);
