@@ -1,0 +1,58 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="formModalLabel">Cadastro de Produto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="produtoForm">
+              <div class="mb-3">
+                <label for="nome" class="form-label">Nome do Produto</label>
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome do produto" required>
+              </div>
+              
+              <div class="mb-3">
+                <label for="categoria" class="form-label" >Categoria do Produto</label>
+                <select class="form-select" id="categoria" name="categoria" required>
+                  <option value="">Selecione uma categoria</option>
+                  <option value="eletronicos">Eletrônicos</option>
+                  <option value="moda">Moda</option>
+                  <option value="alimentos">Alimentos</option>
+                  <option value="livros">Livros</option>
+                  <!-- Adicione mais opções conforme necessário -->
+                </select>
+              </div>
+              
+              <div class="mb-3">
+                <label for="preco" class="form-label">Preço do Produto</label>
+                <input type="number" step="0.01" class="form-control" id="preco" name="preco" placeholder="Digite o preço" required>
+              </div>
+              
+              <!-- <div class="mb-3">
+                <label for="imagem" class="form-label">Imagem do Produto</label>
+                <input type="file" class="form-control" id="imagem" accept="image/*" required>
+              </div> -->
+              <div class="mb-3">
+                <label for="imagem" class="form-label">Imagem do Produto (link)</label>
+                <input type="text" class="form-control"  id="imagem" name="imagem"  required>
+              </div>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Salvar Produto</button>
+              </div>
+            </form>
+          </div>
+          
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>

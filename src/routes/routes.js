@@ -16,7 +16,7 @@ module.exports = function(application){
       application.src.controllers.anuncieController.buscarProdutos(application, req, res);
     });
   
-    application.post('/anuncie', function(req, res){
+    application.post('/anuncie/add', function(req, res){
       application.src.controllers.anuncieController.adicionarProduto(application, req, res);
     });
   

@@ -19,10 +19,6 @@ const autenticar = function(application, req, res) {
   
   const { email, senha } = req.body;
 
-  if (!email || !senha) {
-    return res.status(400).send('Email e senha são obrigatórios');
-}
-
   
   usuario.autenticar(email,senha,function(err, dados) {
     if (err) {

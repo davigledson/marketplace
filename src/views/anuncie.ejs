@@ -1,1 +1,121 @@
-produtos
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Marketplace</title>
+  <link href="https://getbootstrap.com/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <br />
+   <%- include('nav.ejs'); -%>
+    <br />
+    <div class="d-flex justify-content-end mt-5">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
+        Adicionar Produto
+      </button>
+    </div>
+    
+    <div class="container mt-1">
+        <% if (produtos.length > 0) { %>
+            <div class="row flex-column">
+                <% for (var i = 0; i < produtos.length; i++) { %>
+                    <div class="card mb-4 shadow-sm">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img width="200" src="<%= produtos[i].imagem %>" class="img-fluid rounded-start" alt="<%= produtos[i].titulo %>">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= produtos[i].titulo %></h5>
+                                    <p class="card-text text-danger fs-5">R$ <%= produtos[i].preco %></p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <button id="<%= produtos[i].id %>" onclick="window.adicionarProduto('<%= encodeURI(JSON.stringify(produtos[i])) %>', '<%= produtos[i].id %>')" class="btn btn-success">
+                                            Adicionar ao carrinho
+                                        </button>
+                                        <div class="d-flex row">
+                                                <a  href="/anunciar/produtos/edit/<%= produtos[i].id %>" class="btn btn-primary mb-2">Editar</a>
+                                                <a  href="anunciar/produtos/deletar/<%= produtos[i].id %>" class="btn btn-danger mb-2">Excluir</a>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        <% } else { %>
+            <div class="alert alert-info" role="alert">
+                Nenhum produto disponível.
+            </div>
+        <% } %>
+    </div>
+    
+  </div>
+  <div class="card_login" id="loginCard">
+
+    <%- include('cards/login'); -%>
+  </div>
+
+  <div >
+
+    <%- include('cards/cadastro_editar'); -%>
+  </div>
+</body>
+<script>
+    document.getElementById('produtoForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    // Coleta os dados do formulário
+    const formData = new FormData(event.target);
+    const dados = {
+        nome: formData.get('nome'), // Usar 'get' para acessar os valores do FormData
+        categoria: formData.get('categoria'),
+        preco: parseFloat(formData.get('preco')), // Converter preço para float
+        imagem: formData.get('imagem')
+    };
+
+    console.log('dados do formulário:', dados);
+
+    // Envia os dados para o servidor usando fetch
+    fetch('/anuncie/add', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dados)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao adicionar produto');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if(data.success) {
+            console.log('Produto adicionado com sucesso:'+ data.success);
+            alert('Produto adicionado com sucesso!');
+        } else {
+            console.log('Erroooooo ao adicionar produto:'+ data.error);
+            alert('Ocorreu um erro ao adicionar o produto.');
+        }
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert('Ocorreu um erro ao adicionar o produto.');
+    });
+});
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+<%- include('js/funcions'); -%>
+</html>
