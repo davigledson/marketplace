@@ -152,5 +152,12 @@
     "categoria": "moda",
     "preco": 44,
     "imagem": "fff"
+  },
+  {
+    "id": 23,
+    "titulo": "cadeira",
+    "categoria": "moda",
+    "preco": 46,
+    "imagem": "sem imagem"
   }
 ]

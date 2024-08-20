@@ -47,11 +47,48 @@ class produtos {
               return callback('Erro ao salvar o produto: ' + writeErr);
           }
 
-          // Chama o callback com o novo produto adicionado
+          
           callback(null, novoProduto);
       });
     });
 }
+
+  editar(id, dadosAtualizados, callback) {
+    fs.readFile('./data/produtos.json', 'utf8', function(err, lista) {
+      if (err) {
+        return callback(err);
+      }
+
+      let produtos = [];
+
+      if (lista) {
+        try {
+          produtos = JSON.parse(lista);
+        } catch (parseErr) {
+          return callback('Erro ao parsear JSON: ' + parseErr);
+        }
+      }
+
+      
+      const index = produtos.findIndex(produto => produto.id === id);
+      if (index === -1) {
+        return callback('Produto não encontrado');
+      }
+
+      //vai pegar o produto que quero editar e atualizar os dados do mesmo
+      produtos[index] = { ...produtos[index], ...dadosAtualizados };
+
+      
+      fs.writeFile('./data/produtos.json', JSON.stringify(produtos, null, 2), function(writeErr) {
+        if (writeErr) {
+          return callback('Erro ao salvar o produto: ' + writeErr);
+        }
+
+        callback(null, produtos[index]);
+      });
+    });
+  }
+
 }
 
 module.exports = function(){

@@ -39,7 +39,7 @@
                                             Adicionar ao carrinho
                                         </button>
                                         <div class="d-flex row">
-                                                <a  href="/anunciar/produtos/edit/<%= produtos[i].id %>" class="btn btn-primary mb-2">Editar</a>
+                                                <a  onclick='editarProduto(<%= JSON.stringify(produtos[i]) %>)' class="btn btn-primary mb-2" >Editar</a> 
                                                 <a  href="anunciar/produtos/deletar/<%= produtos[i].id %>" class="btn btn-danger mb-2">Excluir</a>
                                         </div>
                                         
@@ -69,23 +69,28 @@
   </div>
 </body>
 <script>
-    document.getElementById('produtoForm').addEventListener('submit', function(event) {
+
+document.getElementById('produtoForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Impede o envio padrão do formulário
 
     // Coleta os dados do formulário
     const formData = new FormData(event.target);
     const dados = {
-        nome: formData.get('nome'), // Usar 'get' para acessar os valores do FormData
+        id: formData.get('id'), // Verifica se há um ID para edição
+        nome: formData.get('nome'),
         categoria: formData.get('categoria'),
-        preco: parseFloat(formData.get('preco')), // Converter preço para float
+        preco: parseFloat(formData.get('preco')),
         imagem: formData.get('imagem')
     };
+
+    const url = dados.id ? `/anuncie/edit/${dados.id}` : '/anuncie/add'; // Define a URL com base na ação
+    const method = dados.id ? 'PUT' : 'POST'; // Define o método com base na ação
 
     console.log('dados do formulário:', dados);
 
     // Envia os dados para o servidor usando fetch
-    fetch('/anuncie/add', {
-        method: 'POST',
+    fetch(url, {
+        method: method,
         headers: {
             'Content-Type': 'application/json'
         },
@@ -93,24 +98,45 @@
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error('Erro ao adicionar produto');
+            throw new Error('Erro ao salvar produto');
         }
         return response.json();
     })
     .then(data => {
-        if(data.success) {
-            console.log('Produto adicionado com sucesso:'+ data.success);
-            alert('Produto adicionado com sucesso!');
+        if (data.success) {
+            console.log('Produto salvo com sucesso:', data.success);
+            alert('Produto salvo com sucesso!');
         } else {
-            console.log('Erroooooo ao adicionar produto:'+ data.error);
-            alert('Ocorreu um erro ao adicionar o produto.');
+            console.log('Erro ao salvar produto:', data.error);
+            alert('Ocorreu um erro ao salvar o produto.');
         }
     })
     .catch(error => {
         console.error('Erro:', error);
-        alert('Ocorreu um erro ao adicionar o produto.');
+        alert('Ocorreu um erro ao salvar o produto.');
     });
 });
+
+// Função para abrir o modal  (edição)
+function editarProduto(produto) {
+    document.getElementById('id_produto_form').value = produto.id;
+    document.getElementById('nome').value = produto.titulo;
+    document.getElementById('categoria').value = produto.categoria;
+    document.getElementById('preco').value = produto.preco;
+    document.getElementById('imagem').value = produto.imagem;
+    document.getElementById('btn_modal_salvar').innerText = 'Editar Produto'
+    var formModal = new bootstrap.Modal(document.getElementById('formModal'));
+    formModal.show();
+}
+
+// Função para abrir o modal (criação)
+function criarProduto() {
+    document.getElementById('produtoForm').reset();
+    document.getElementById('id_produto_form').value = '';
+    
+    var formModal = new bootstrap.Modal(document.getElementById('formModal'));
+    formModal.show();
+}
 
 
 </script>

@@ -1,9 +1,6 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
-  
+
   <!-- Modal -->
+
   <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -13,6 +10,7 @@
         </div>
         <div class="modal-body">
             <form id="produtoForm">
+              <input type="hidden" name="id" id="id_produto_form" value="" />
               <div class="mb-3">
                 <label for="nome" class="form-label">Nome do Produto</label>
                 <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome do produto" required>
@@ -26,7 +24,7 @@
                   <option value="moda">Moda</option>
                   <option value="alimentos">Alimentos</option>
                   <option value="livros">Livros</option>
-                  <!-- Adicione mais opções conforme necessário -->
+                  
                 </select>
               </div>
               
@@ -44,7 +42,7 @@
                 <input type="text" class="form-control"  id="imagem" name="imagem"  required>
               </div>
               <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary">Salvar Produto</button>
+                <button type="submit" id="btn_modal_salvar" class="btn btn-primary">Salvar Produto</button>
               </div>
             </form>
           </div>

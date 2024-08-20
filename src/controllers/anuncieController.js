@@ -52,10 +52,36 @@ produtos.adicionar(novoProduto, function(err, produtoAdicionado) {
 
   
   }
+  const editarProduto = function(application, req, res) {
+    const produtos = new application.src.models.produtos();
+    
+    const { id } = req.params;
+    const { nome, categoria, preco, imagem } = req.body;
+  
+    if (!id || !nome || !categoria || !preco) {
+      return res.status(400).json({ error: 'Dados incompletos: ID, nome, categoria e preço são obrigatórios' });
+    }
+  
+    const dadosAtualizados = {
+      titulo: nome,
+      categoria,
+      preco: parseFloat(preco),
+      imagem: imagem || "" 
+    };
+  
+    produtos.editar(parseInt(id), dadosAtualizados, function(err, produtoAtualizado) {
+      if (err) {
+        return res.status(500).json({ error: 'Erro ao editar produto: ' + err });
+      }
+  
+      res.status(200).json({ success: 'Produto editado com sucesso', produto: produtoAtualizado });
+    });
+  }
   
   module.exports = {
     buscarProdutos,
-    adicionarProduto
+    adicionarProduto,
+    editarProduto
     
   }
   
