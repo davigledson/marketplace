@@ -53,7 +53,8 @@ produtos.adicionar(novoProduto, function(err, produtoAdicionado) {
   
   }
   const editarProduto = function(application, req, res) {
-    const produtos = new application.src.models.produtos();
+    const produtos = new application.src.models.anuncie();
+    console.log('Produto a ser editado:', req.body);
     
     const { id } = req.params;
     const { nome, categoria, preco, imagem } = req.body;

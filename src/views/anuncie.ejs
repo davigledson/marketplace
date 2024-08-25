@@ -16,7 +16,7 @@
    <%- include('nav.ejs'); -%>
     <br />
     <div class="d-flex justify-content-end mt-5">
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
+<button type="button" class="btn btn-primary"   onclick="window.criarProduto()">
         Adicionar Produto
       </button>
     </div>
@@ -76,7 +76,7 @@ document.getElementById('produtoForm').addEventListener('submit', function(event
     // Coleta os dados do formulário
     const formData = new FormData(event.target);
     const dados = {
-        id: formData.get('id'), // Verifica se há um ID para edição
+        id: formData.get('id_produto_form'), // Verifica se há um ID para edição
         nome: formData.get('nome'),
         categoria: formData.get('categoria'),
         preco: parseFloat(formData.get('preco')),
@@ -84,7 +84,7 @@ document.getElementById('produtoForm').addEventListener('submit', function(event
     };
 
     const url = dados.id ? `/anuncie/edit/${dados.id}` : '/anuncie/add'; // Define a URL com base na ação
-    const method = dados.id ? 'PUT' : 'POST'; // Define o método com base na ação
+    const method = 'POST'; // Define o método com base na ação
 
     console.log('dados do formulário:', dados);
 
@@ -97,9 +97,7 @@ document.getElementById('produtoForm').addEventListener('submit', function(event
         body: JSON.stringify(dados)
     })
     .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro ao salvar produto');
-        }
+      
         return response.json();
     })
     .then(data => {
