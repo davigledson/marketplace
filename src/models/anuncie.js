@@ -89,6 +89,41 @@ class produtos {
     });
   }
 
+  deletar(id, callback) {
+    fs.readFile('./data/produtos.json', 'utf8', function(err, lista) {
+        if (err) {
+            return callback(err);
+        }
+
+        let produtos = [];
+
+        if (lista) {
+            try {
+                produtos = JSON.parse(lista);
+            } catch (parseErr) {
+                return callback('Erro ao parsear JSON: ' + parseErr);
+            }
+        }
+
+        // Encontra o índice do produto que deve ser deletado
+        const index = produtos.findIndex(produto => produto.id === id);
+        if (index === -1) {
+            return callback('Produto não encontrado');
+        }
+
+        // Remove o produto do array
+        produtos.splice(index, 1);
+
+        // Escreve o array atualizado de volta no arquivo JSON
+        fs.writeFile('./data/produtos.json', JSON.stringify(produtos, null, 2), function(writeErr) {
+            if (writeErr) {
+                return callback('Erro ao deletar o produto: ' + writeErr);
+            }
+
+            callback(null, { success: true });
+        });
+    });
+}
 }
 
 module.exports = function(){

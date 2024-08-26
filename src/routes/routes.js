@@ -19,6 +19,10 @@ module.exports = function(application){
     application.post('/anuncie/add', function(req, res){
       application.src.controllers.anuncieController.adicionarProduto(application, req, res);
     });
+    application.delete('/anuncie/delete/:id', function(req, res){
+      application.src.controllers.anuncieController.deletarProduto(application, req, res);
+  });
+  
     application.post('/anuncie/edit/:id', function(req, res){
       application.src.controllers.anuncieController.editarProduto(application, req, res);
     });

@@ -77,12 +77,33 @@ produtos.adicionar(novoProduto, function(err, produtoAdicionado) {
   
       res.status(200).json({ success: 'Produto editado com sucesso', produto: produtoAtualizado });
     });
+
+
+    
   }
+
+  deletarProduto = function(application, req, res) {
+    const idProduto = parseInt(req.params.id, 10); // Converte o ID para número inteiro
+
+    const anuncieModel = new application.src.models.anuncie();
+
+    anuncieModel.deletar(idProduto, function(error, result) {
+        if (error) {
+            console.error('Erro ao deletar o produto:', error);
+            return res.status(500).json({ success: false, message: 'Erro ao deletar o produto' });
+        }
+
+        res.json({ success: true, message: 'Produto deletado com sucesso' });
+    });
+};
+
+
   
   module.exports = {
     buscarProdutos,
     adicionarProduto,
-    editarProduto
+    editarProduto,
+    deletarProduto
     
   }
   

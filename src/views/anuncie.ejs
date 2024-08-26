@@ -15,8 +15,13 @@
     <br />
    <%- include('nav.ejs'); -%>
     <br />
+   
+            <div id="mensagem_info" class="d-flex justify-content-center mt-5 alert  alert-dismissible " role="alert">
+                
+                
+              </div>
     <div class="d-flex justify-content-end mt-5">
-<button type="button" class="btn btn-primary"   onclick="window.criarProduto()">
+<button type="button" class="btn btn-primary"   onclick="window.criarProdutoModal()">
         Adicionar Produto
       </button>
     </div>
@@ -39,8 +44,8 @@
                                             Adicionar ao carrinho
                                         </button>
                                         <div class="d-flex row">
-                                                <a  onclick='editarProduto(<%= JSON.stringify(produtos[i]) %>)' class="btn btn-primary mb-2" >Editar</a> 
-                                                <a  href="anunciar/produtos/deletar/<%= produtos[i].id %>" class="btn btn-danger mb-2">Excluir</a>
+                                                <a  onclick='mostrarDadosProduto(<%= JSON.stringify(produtos[i]) %>)' class="btn btn-primary mb-2" >Editar</a> 
+                                                <a  onclick="anuncieController.deletarProduto(<%= JSON.stringify(produtos[i].id) %>)" class="btn btn-danger mb-2">Excluir</a>
                                         </div>
                                         
                                     </div>
@@ -70,53 +75,10 @@
 </body>
 <script>
 
-document.getElementById('produtoForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Impede o envio padrão do formulário
 
-    // Coleta os dados do formulário
-    const formData = new FormData(event.target);
-    const dados = {
-        id: formData.get('id_produto_form'), // Verifica se há um ID para edição
-        nome: formData.get('nome'),
-        categoria: formData.get('categoria'),
-        preco: parseFloat(formData.get('preco')),
-        imagem: formData.get('imagem')
-    };
-
-    const url = dados.id ? `/anuncie/edit/${dados.id}` : '/anuncie/add'; // Define a URL com base na ação
-    const method = 'POST'; // Define o método com base na ação
-
-    console.log('dados do formulário:', dados);
-
-    // Envia os dados para o servidor usando fetch
-    fetch(url, {
-        method: method,
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dados)
-    })
-    .then(response => {
-      
-        return response.json();
-    })
-    .then(data => {
-        if (data.success) {
-            console.log('Produto salvo com sucesso:', data.success);
-            alert('Produto salvo com sucesso!');
-        } else {
-            console.log('Erro ao salvar produto:', data.error);
-            alert('Ocorreu um erro ao salvar o produto.');
-        }
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-        alert('Ocorreu um erro ao salvar o produto.');
-    });
-});
 
 // Função para abrir o modal  (edição)
-function editarProduto(produto) {
+function mostrarDadosProduto(produto) {
     document.getElementById('id_produto_form').value = produto.id;
     document.getElementById('nome').value = produto.titulo;
     document.getElementById('categoria').value = produto.categoria;
@@ -128,7 +90,7 @@ function editarProduto(produto) {
 }
 
 // Função para abrir o modal (criação)
-function criarProduto() {
+function criarProdutoModal() {
     document.getElementById('produtoForm').reset();
     document.getElementById('id_produto_form').value = '';
     
@@ -137,9 +99,26 @@ function criarProduto() {
 }
 
 
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+      
+
+</script>
 
 <%- include('js/funcions'); -%>
+<%- include('js/AnuncieFrontController'); -%>
+
+<script>
+    const anuncieController = new AnuncieController('produtoForm','mensagem_info');
+</script>
+<script>
+    // Obtém o botão de salvar do modal
+const btnModalSalvar = document.getElementById('btn_modal_salvar');
+
+// Adiciona um evento de clique ao botão
+btnModalSalvar.addEventListener('click', function() {
+    document.querySelector('[data-bs-dismiss="modal"]').click();
+});
+</script>
 </html>

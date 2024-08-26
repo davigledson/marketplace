@@ -1,0 +1,71 @@
+METODO DE REQUISICAO SEM A ORIENTAÇÃO A OBJETO
+
+
+// document.getElementById('produtoForm').addEventListener('submit', function(event) {
+//     event.preventDefault(); // Impede o envio padrão do formulário
+
+//     // Coleta os dados do formulário
+//     const formData = new FormData(event.target);
+//     const dados = {
+//         id: formData.get('id_produto_form'), // Verifica se há um ID para edição
+//         nome: formData.get('nome'),
+//         categoria: formData.get('categoria'),
+//         preco: parseFloat(formData.get('preco')),
+//         imagem: formData.get('imagem')
+//     };
+
+//     const url = dados.id ? `/anuncie/edit/${dados.id}` : '/anuncie/add'; // Define a URL com base na ação
+//     const method = 'POST'; // Define o método com base na ação
+
+//     console.log('dados do formulário:', dados);
+
+//     // Envia os dados para o servidor usando fetch
+//     fetch(url, {
+//         method: method,
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(dados)
+//     })
+//     .then(response => {
+      
+//         return response.json();
+//     })
+//     .then(data => {
+//         if (data.success) {
+//             console.log('Produto salvo com sucesso:', data.success);
+//             alert('Produto salvo com sucesso!');
+//         } else {
+//             console.log('Erro ao salvar produto:', data.error);
+//             alert('Ocorreu um erro ao salvar o produto.');
+//         }
+//     })
+//     .catch(error => {
+//         console.error('Erro:', error);
+//         alert('Ocorreu um erro ao salvar o produto.');
+//     });
+// });
+
+// function deletarProduto(idProduto) {
+//     const url = `/anuncie/delete/${idProduto}`;
+
+//     fetch(url, {
+//         method: 'DELETE',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         if (data.success) {
+//             alert('Produto deletado com sucesso!');
+//             // Atualize a lista de produtos ou redirecione conforme necessário
+//         } else {
+//             alert('Ocorreu um erro ao deletar o produto.');
+//         }
+//     })
+//     .catch(error => {
+//         console.error('Erro:', error);
+//         alert('Ocorreu um erro ao deletar o produto.');
+//     });
+// }
