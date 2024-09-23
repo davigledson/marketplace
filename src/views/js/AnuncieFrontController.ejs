@@ -39,6 +39,7 @@ class AnuncieController {
                     //alert('Produto salvo com sucesso!');
                     
                     this.exibirMensagem(data.success,"success");
+                    
                    
                 } else {
                     console.log('Erro ao salvar produto:', data.error);
@@ -99,6 +100,10 @@ class AnuncieController {
         } else {
             console.error('Div de mensagem não encontrada.');
         }
+    }
+
+    reiniciarPagina() {
+        window.location.reload();
     }
 }
 

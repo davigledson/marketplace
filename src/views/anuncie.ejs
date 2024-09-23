@@ -40,9 +40,9 @@
                                     <h5 class="card-title"><%= produtos[i].titulo %></h5>
                                     <p class="card-text text-danger fs-5">R$ <%= produtos[i].preco %></p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <button id="<%= produtos[i].id %>" onclick="window.adicionarProduto('<%= encodeURI(JSON.stringify(produtos[i])) %>', '<%= produtos[i].id %>')" class="btn btn-success">
+                                        <!-- <button id="<%= produtos[i].id %>" onclick="window.adicionarProduto('<%= encodeURI(JSON.stringify(produtos[i])) %>', '<%= produtos[i].id %>')" class="btn btn-success">
                                             Adicionar ao carrinho
-                                        </button>
+                                        </button> -->
                                         <div class="d-flex row">
                                                 <a  onclick='mostrarDadosProduto(<%= JSON.stringify(produtos[i]) %>)' class="btn btn-primary mb-2" >Editar</a> 
                                                 <a  onclick="anuncieController.deletarProduto(<%= JSON.stringify(produtos[i].id) %>)" class="btn btn-danger mb-2">Excluir</a>
