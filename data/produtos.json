@@ -4,153 +4,107 @@
     "titulo": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
     "preco": 109.95,
     "categoria": "men s clothing",
-    "imagem": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+    "imagem": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    "criadoEm": "2024-01-01T10:00:00Z",
+    "atualizadoEm": "2024-01-01T10:00:00Z"
   },
   {
     "id": 2,
     "titulo": "Mens Casual Premium Slim Fit T-Shirts ",
     "preco": 22.3,
     "categoria": "men s clothing",
-    "imagem": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+    "imagem": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+    "criadoEm": "2024-01-02T11:00:00Z",
+    "atualizadoEm": "2024-01-02T11:00:00Z"
   },
   {
     "id": 3,
     "titulo": "Mens Cotton Jacket",
     "preco": 55.99,
     "categoria": "men s clothing",
-    "imagem": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+    "imagem": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
+    "criadoEm": "2024-01-03T12:00:00Z",
+    "atualizadoEm": "2024-01-03T12:00:00Z"
   },
   {
     "id": 4,
     "titulo": "Mens Casual Slim Fit",
     "preco": 15.99,
     "categoria": "men s clothing",
-    "imagem": "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"
+    "imagem": "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
+    "criadoEm": "2024-01-04T13:00:00Z",
+    "atualizadoEm": "2024-01-04T13:00:00Z"
   },
   {
     "id": 5,
     "titulo": "John Hardy Women s Legends Naga Gold",
     "preco": 695,
     "categoria": "jewelery",
-    "imagem": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg"
+    "imagem": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
+    "criadoEm": "2024-01-05T14:00:00Z",
+    "atualizadoEm": "2024-01-05T14:00:00Z"
   },
   {
     "id": 6,
     "titulo": "Solid Gold Petite Micropave ",
     "preco": 168,
     "categoria": "jewelery",
-    "imagem": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg"
+    "imagem": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
+    "criadoEm": "2024-01-06T15:00:00Z",
+    "atualizadoEm": "2024-01-06T15:00:00Z"
   },
   {
     "id": 7,
     "titulo": "White Gold Plated Princess",
     "preco": 9.99,
     "categoria": "jewelery",
-    "imagem": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"
+    "imagem": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
+    "criadoEm": "2024-01-07T16:00:00Z",
+    "atualizadoEm": "2024-01-07T16:00:00Z"
   },
   {
     "id": 8,
     "titulo": "Pierced Owl Rose Gold Plated Stainless Steel Double",
     "preco": 10.99,
     "categoria": "jewelery",
-    "imagem": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg"
+    "imagem": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
+    "criadoEm": "2024-01-08T17:00:00Z",
+    "atualizadoEm": "2024-01-08T17:00:00Z"
   },
   {
     "id": 9,
     "titulo": "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
     "preco": 64,
     "categoria": "electronics",
-    "imagem": "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg"
+    "imagem": "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg",
+    "criadoEm": "2024-01-09T18:00:00Z",
+    "atualizadoEm": "2024-01-09T18:00:00Z"
   },
   {
     "id": 10,
     "titulo": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
-    "preco": 109,
-    "categoria": "electronics",
-    "imagem": "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg"
+    "preco": 1090,
+    "categoria": "eletronicos",
+    "imagem": "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg",
+    "criadoEm": "2024-01-10T19:00:00Z",
+    "atualizadoEm": "2024-12-02T12:32:21.417Z"
   },
   {
     "id": 11,
-    "titulo": "Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5",
-    "preco": 109,
-    "categoria": "electronics",
-    "imagem": "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg"
+    "titulo": "Memória RAM Crucial Ddr5 5200 mhz Sodimm CT16G52c42s5 Crucial",
+    "categoria": "eletronicos",
+    "preco": 500,
+    "imagem": "https://d5gag3xtge2og.cloudfront.net/producao/35262597/G/memoria-para-notebook-crucial-basics--4gb--2666mhz--ddr4--cl19-cb4gs2666.webp",
+    "criadoEm": "2024-12-02T12:57:02.108Z",
+    "atualizadoEm": "2024-12-02T13:57:15.702Z"
   },
   {
     "id": 12,
-    "titulo": "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
-    "preco": 114,
-    "categoria": "electronics",
-    "imagem": "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg"
-  },
-  {
-    "id": 13,
-    "titulo": "Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin",
-    "preco": 599,
-    "categoria": "electronics",
-    "imagem": "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg"
-  },
-  {
-    "id": 14,
-    "titulo": "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
-    "preco": 999.99,
-    "categoria": "electronics",
-    "imagem": "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg"
-  },
-  {
-    "id": 15,
-    "titulo": "BIYLACLESEN Women s 3-in-1 Snowboard Jacket Winter Coats",
-    "preco": 56.99,
-    "categoria": "women s clothing",
-    "imagem": "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg"
-  },
-  {
-    "id": 16,
-    "titulo": "Lock and Love Women s Removable Hooded Faux Leather Moto Biker Jacket",
-    "preco": 29.95,
-    "categoria": "women s clothing",
-    "imagem": "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg"
-  },
-  {
-    "id": 17,
-    "titulo": "Rain Jacket Women Windbreaker Striped Climbing Raincoats",
-    "preco": 39.99,
-    "categoria": "women s clothing",
-    "imagem": "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg"
-  },
-  {
-    "id": 18,
-    "titulo": "MBJ Women s Solid Short Sleeve Boat Neck V ",
-    "preco": 9.85,
-    "categoria": "women s clothing",
-    "imagem": "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg"
-  },
-  {
-    "id": 199,
-    "titulo": "Opna Womens Short Sleeve Moisture",
-    "preco": 7.95,
-    "categoria": "womens clothing",
-    "imagem": "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg"
-  },
-  {
-    "id": 20,
-    "titulo": "Camiseta Ciência da Computação",
-    "preco": 12.99,
-    "categoria": "moda",
-    "imagem": "https://marfacoach.com.br/wp-content/uploads/2019/10/3.png"
-  },
-  {
-    "id": 24,
-    "titulo": "cadeira gamer",
+    "titulo": "Placa de Vídeo Asus RTX 3050 OC Dual NVIDIA GeForce 6GB, GDDR6, 96 Bits - DUAL-RTX3050-6G",
     "categoria": "eletronicos",
-    "preco": 460,
-    "imagem": "https://expresso10.cdn.magazord.com.br/img/2022/11/produto/67931/92210000ixma002.jpg?ims=fit-in/800x800/filters:fill(white)"
-  },
-  {
-    "id": 25,
-    "titulo": "notebook gamer",
-    "categoria": "eletronicos",
-    "preco": 4500,
-    "imagem": "https://m.media-amazon.com/images/I/613PZt698DL._AC_SX679_.jpg"
+    "preco": 1500,
+    "imagem": "https://waz.vtexassets.com/arquivos/ids/225602-1600-auto?v=638276555013600000&width=1600&height=auto&aspect=true",
+    "criadoEm": "2024-12-02T13:59:19.216Z",
+    "atualizadoEm": "2024-12-02T13:59:19.216Z"
   }
 ]

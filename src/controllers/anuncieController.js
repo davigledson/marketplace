@@ -23,13 +23,15 @@ produtos.buscar(function(err, result) {
     if (!nome || !categoria || !preco) {
         return res.status(400).json({ error: 'Dados incompletos: nome, categoria e preço são obrigatórios' });
     }
-
+    const agora = new Date();
     // Cria o objeto do novo produto
     const novoProduto = {
         titulo: nome,
         categoria,
         preco: parseFloat(preco),
-        imagem: imagem || "" // Se a imagem não for fornecida, deixa como string vazia
+        imagem: imagem || "", // Se a imagem não for fornecida, deixa como string vazia
+        criadoEm: agora.toISOString(), // ISO 8601 format (YYYY-MM-DDTHH:mm:ss.sssZ)
+        atualizadoEm: agora.toISOString(),
     };
     
 produtos.adicionar(novoProduto, function(err, produtoAdicionado) {
@@ -63,11 +65,13 @@ produtos.adicionar(novoProduto, function(err, produtoAdicionado) {
       return res.status(400).json({ error: 'Dados incompletos: ID, nome, categoria e preço são obrigatórios' });
     }
   
+    const agora = new Date();
     const dadosAtualizados = {
       titulo: nome,
       categoria,
       preco: parseFloat(preco),
-      imagem: imagem || "" 
+      imagem: imagem || "",
+      atualizadoEm: agora.toISOString(), 
     };
   
     produtos.editar(parseInt(id), dadosAtualizados, function(err, produtoAtualizado) {

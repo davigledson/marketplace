@@ -7,7 +7,28 @@
   <title>Marketplace</title>
   <link href="https://getbootstrap.com/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://icons.getbootstrap.com/assets/font/bootstrap-icons.css">
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.css"
+  />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.autoplay.css"
+  />
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    #myCarousel {
+      --f-carousel-spacing: 10px;
+      --f-carousel-slide-width: 100%;
+      --f-progress-color: #ff3520;
+    }
+
+    #myCarousel .f-carousel__slide {
+      padding: 50px;
+      background: #eee;
+    }
+  </style>
+</head>
 
   
 </head>
@@ -20,6 +41,23 @@
    
       
     <br />
+    <div>
+      <div class="f-carousel" id="myCarousel">
+        
+        <% for(var i=0; i < produtos.length; i++) {%>
+          <div class="f-carousel__slide" style="height: 600px;">
+            <img src="<%= produtos[i].imagem %>" class="card-img-top" alt="<%= produtos[i].titulo %>" class="d-block w-100">
+            <div class="carousel-caption " style="position: absolute; bottom: 10px; left: 15px; padding: 10px; border-radius: 5px;" >
+              <h5  style="position: absolute; bottom: 10px; left: 15px; background: rgba(0, 0, 0, 0.5); padding: 10px; border-radius: 5px;"><%= produtos[i].titulo %></h5>
+              <p  style="position: absolute; bottom: 10px; left: 2420px; background: rgba(0, 0, 0, 0.5); padding: 10px; border-radius: 5px;">R$ <%= produtos[i].preco %></p>
+            </div>
+          </div>
+          <% } %>
+      </div>
+      
+       
+      </div>
+    </div>
     <% if (produtos.length> 0) { %>
       <div class="row justify-content-between">
         <% for(var i=0; i < produtos.length; i++) {%>
@@ -67,5 +105,19 @@
 
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.autoplay.umd.js"></script>
+<script>
+  new Carousel(document.getElementById("myCarousel"), {
+    Autoplay : {
+      timeout : 2000
+    }
+  }, {
+    Autoplay
+  });
+</script>
 <%- include('js/funcions'); -%>
+
+
 </html>
