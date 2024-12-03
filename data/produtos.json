@@ -6,16 +6,36 @@
     "categoria": "men s clothing",
     "imagem": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
     "criadoEm": "2024-01-01T10:00:00Z",
-    "atualizadoEm": "2024-01-01T10:00:00Z"
+    "atualizadoEm": "2024-01-01T10:00:00Z",
+    "estoque": {
+      "quantidade": 200,
+      "disponivel": 180,
+      "vendidos": 20,
+      "reservado": 10,
+      "emTransito": 5,
+      "minimo": 15,
+      "localizacao": "Armazém A",
+      "atualizadoEm": "2024-12-02T14:00:00Z"
+    }
   },
   {
     "id": 2,
-    "titulo": "Mens Casual Premium Slim Fit T-Shirts ",
+    "titulo": "Mens Casual Premium Slim Fit T-Shirts",
     "preco": 22.3,
     "categoria": "men s clothing",
     "imagem": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
     "criadoEm": "2024-01-02T11:00:00Z",
-    "atualizadoEm": "2024-01-02T11:00:00Z"
+    "atualizadoEm": "2024-01-02T11:00:00Z",
+    "estoque": {
+      "quantidade": 300,
+      "disponivel": 280,
+      "vendidos": 20,
+      "reservado": 5,
+      "emTransito": 10,
+      "minimo": 25,
+      "localizacao": "Armazém B",
+      "atualizadoEm": "2024-12-02T14:00:00Z"
+    }
   },
   {
     "id": 3,
@@ -24,7 +44,17 @@
     "categoria": "men s clothing",
     "imagem": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
     "criadoEm": "2024-01-03T12:00:00Z",
-    "atualizadoEm": "2024-01-03T12:00:00Z"
+    "atualizadoEm": "2024-01-03T12:00:00Z",
+    "estoque": {
+      "quantidade": 150,
+      "disponivel": 120,
+      "vendidos": 30,
+      "reservado": 10,
+      "emTransito": 0,
+      "minimo": 20,
+      "localizacao": "Armazém A",
+      "atualizadoEm": "2024-12-02T14:00:00Z"
+    }
   },
   {
     "id": 4,
@@ -33,7 +63,17 @@
     "categoria": "men s clothing",
     "imagem": "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
     "criadoEm": "2024-01-04T13:00:00Z",
-    "atualizadoEm": "2024-01-04T13:00:00Z"
+    "atualizadoEm": "2024-01-04T13:00:00Z",
+    "estoque": {
+      "quantidade": 500,
+      "disponivel": 450,
+      "vendidos": 50,
+      "reservado": 20,
+      "emTransito": 15,
+      "minimo": 30,
+      "localizacao": "Armazém C",
+      "atualizadoEm": "2024-12-02T14:00:00Z"
+    }
   },
   {
     "id": 5,
@@ -42,16 +82,36 @@
     "categoria": "jewelery",
     "imagem": "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
     "criadoEm": "2024-01-05T14:00:00Z",
-    "atualizadoEm": "2024-01-05T14:00:00Z"
+    "atualizadoEm": "2024-01-05T14:00:00Z",
+    "estoque": {
+      "quantidade": 80,
+      "disponivel": 60,
+      "vendidos": 20,
+      "reservado": 5,
+      "emTransito": 10,
+      "minimo": 10,
+      "localizacao": "Armazém B",
+      "atualizadoEm": "2024-12-02T14:00:00Z"
+    }
   },
   {
     "id": 6,
-    "titulo": "Solid Gold Petite Micropave ",
+    "titulo": "Solid Gold Petite Micropave",
     "preco": 168,
     "categoria": "jewelery",
     "imagem": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
     "criadoEm": "2024-01-06T15:00:00Z",
-    "atualizadoEm": "2024-01-06T15:00:00Z"
+    "atualizadoEm": "2024-01-06T15:00:00Z",
+    "estoque": {
+      "quantidade": 120,
+      "disponivel": 100,
+      "vendidos": 20,
+      "reservado": 15,
+      "emTransito": 5,
+      "minimo": 12,
+      "localizacao": "Armazém A",
+      "atualizadoEm": "2024-12-02T14:00:00Z"
+    }
   },
   {
     "id": 7,
@@ -60,7 +120,17 @@
     "categoria": "jewelery",
     "imagem": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
     "criadoEm": "2024-01-07T16:00:00Z",
-    "atualizadoEm": "2024-01-07T16:00:00Z"
+    "atualizadoEm": "2024-01-07T16:00:00Z",
+    "estoque": {
+      "quantidade": 200,
+      "disponivel": 170,
+      "vendidos": 30,
+      "reservado": 10,
+      "emTransito": 10,
+      "minimo": 20,
+      "localizacao": "Armazém B",
+      "atualizadoEm": "2024-12-02T14:00:00Z"
+    }
   },
   {
     "id": 8,
@@ -69,16 +139,36 @@
     "categoria": "jewelery",
     "imagem": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
     "criadoEm": "2024-01-08T17:00:00Z",
-    "atualizadoEm": "2024-01-08T17:00:00Z"
+    "atualizadoEm": "2024-01-08T17:00:00Z",
+    "estoque": {
+      "quantidade": 300,
+      "disponivel": 250,
+      "vendidos": 50,
+      "reservado": 20,
+      "emTransito": 10,
+      "minimo": 25,
+      "localizacao": "Armazém C",
+      "atualizadoEm": "2024-12-02T14:00:00Z"
+    }
   },
   {
     "id": 9,
-    "titulo": "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
+    "titulo": "WD 2TB Elements Portable External Hard Drive - USB 3.0",
     "preco": 64,
     "categoria": "electronics",
     "imagem": "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg",
     "criadoEm": "2024-01-09T18:00:00Z",
-    "atualizadoEm": "2024-01-09T18:00:00Z"
+    "atualizadoEm": "2024-01-09T18:00:00Z",
+    "estoque": {
+      "quantidade": 150,
+      "disponivel": 120,
+      "vendidos": 30,
+      "reservado": 5,
+      "emTransito": 10,
+      "minimo": 20,
+      "localizacao": "Armazém D",
+      "atualizadoEm": "2024-12-02T14:30:00Z"
+    }
   },
   {
     "id": 10,
@@ -87,24 +177,54 @@
     "categoria": "eletronicos",
     "imagem": "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg",
     "criadoEm": "2024-01-10T19:00:00Z",
-    "atualizadoEm": "2024-12-02T12:32:21.417Z"
+    "atualizadoEm": "2024-12-02T12:32:21.417Z",
+    "estoque": {
+      "quantidade": 50,
+      "disponivel": 45,
+      "vendidos": 5,
+      "reservado": 3,
+      "emTransito": 2,
+      "minimo": 10,
+      "localizacao": "Armazém A",
+      "atualizadoEm": "2024-12-02T14:30:00Z"
+    }
   },
   {
     "id": 11,
     "titulo": "Memória RAM Crucial Ddr5 5200 mhz Sodimm CT16G52c42s5 Crucial",
-    "categoria": "eletronicos",
     "preco": 500,
+    "categoria": "eletronicos",
     "imagem": "https://d5gag3xtge2og.cloudfront.net/producao/35262597/G/memoria-para-notebook-crucial-basics--4gb--2666mhz--ddr4--cl19-cb4gs2666.webp",
     "criadoEm": "2024-12-02T12:57:02.108Z",
-    "atualizadoEm": "2024-12-02T13:57:15.702Z"
+    "atualizadoEm": "2024-12-02T13:57:15.702Z",
+    "estoque": {
+      "quantidade": 200,
+      "disponivel": 180,
+      "vendidos": 20,
+      "reservado": 8,
+      "emTransito": 12,
+      "minimo": 15,
+      "localizacao": "Armazém B",
+      "atualizadoEm": "2024-12-02T14:30:00Z"
+    }
   },
   {
     "id": 12,
     "titulo": "Placa de Vídeo Asus RTX 3050 OC Dual NVIDIA GeForce 6GB, GDDR6, 96 Bits - DUAL-RTX3050-6G",
     "categoria": "eletronicos",
-    "preco": 1500,
+    "preco": 4000,
     "imagem": "https://waz.vtexassets.com/arquivos/ids/225602-1600-auto?v=638276555013600000&width=1600&height=auto&aspect=true",
-    "criadoEm": "2024-12-02T13:59:19.216Z",
-    "atualizadoEm": "2024-12-02T13:59:19.216Z"
+    "criadoEm": "2024-12-03T14:11:25.035Z",
+    "atualizadoEm": "2024-12-03T14:11:25.035Z",
+    "estoque": {
+      "quantidade": 400,
+      "disponivel": 400,
+      "vendidos": null,
+      "reservado": 50,
+      "emTransito": 25,
+      "minimo": 20,
+      "localizacao": "Armazém B",
+      "atualizadoEm": "2024-12-03T14:11:25.035Z"
+    }
   }
 ]

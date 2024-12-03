@@ -1,0 +1,85 @@
+<div class="modal fade" id="estoqueModal" tabindex="-1" aria-labelledby="estoqueLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <!-- Cabeçalho da Modal -->
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="estoqueLabel"><i class="bi bi-box-seam"></i> Gerenciamento de Estoque</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+  
+        <!-- Corpo da Modal -->
+        <div class="modal-body">
+          <form id="estoqueForm">
+            <input type="hidden" name="id_estoque_form" id="id_estoque_form" />
+  
+            <!-- Nome do Produto -->
+            <div class="mb-3">
+              <label for="nome_estoque" class="form-label"><i class="bi bi-tag"></i> Nome_estoque do Produto</label>
+              <input type="text" class="form-control bg-light" id="nome_estoque" name="nome_estoque" readonly>
+            </div>
+  
+            <div class="row">
+              <!-- Quantidade Total -->
+              <div class="col-md-6 mb-3">
+                <label for="estoque_quantidade" class="form-label"><i class="bi bi-clipboard-data"></i>Quantidade Total</label>
+                <input type="number" class="form-control bg-light" id="estoque_quantidade" name="estoque_quantidade" readonly>
+              </div>
+  
+              <!-- Quantidade Disponível -->
+              <div class="col-md-6 mb-3">
+                <label for="estoque_disponivel" class="form-label"><i class="bi bi-check-circle"></i> Quantidade Disponível</label>
+                <input type="number" class="form-control bg-light" id="estoque_disponivel" name="estoque_disponivel" readonly>
+              </div>
+            </div>
+  
+            <div class="row">
+              <!-- Quantidade Reservada -->
+              <div class="col-md-6 mb-3">
+                <label for="estoque_reservado" class="form-label"><i class="bi bi-lock"></i> Quantidade Reservada</label>
+                <input type="number" class="form-control bg-light" id="estoque_reservado" name="estoque_reservado" readonly>
+              </div>
+  
+              <!-- Quantidade em Trânsito -->
+              <div class="col-md-6 mb-3">
+                <label for="estoque_emTransito" class="form-label"><i class="bi bi-truck"></i> Quantidade em Trânsito</label>
+                <input type="number" class="form-control bg-light" id="estoque_emTransito" name="estoque_emTransito" readonly>
+              </div>
+            </div>
+  
+            <div class="row">
+              <!-- Quantidade Mínima -->
+              <div class="col-md-6 mb-3">
+                <label for="estoque_minimo" class="form-label"><i class="bi bi-exclamation-circle"></i> Quantidade Mínima</label>
+                <input type="number" class="form-control bg-light" id="estoque_minimo" name="estoque_minimo" readonly>
+              </div>
+  
+              <!-- Localização no Estoque -->
+              <div class="col-md-6 mb-3">
+                <label for="estoque_localizacao" class="form-label"><i class="bi bi-geo-alt"></i> Localização</label>
+                <input type="text" class="form-control bg-light" id="estoque_localizacao" name="estoque_localizacao" readonly>
+              </div>
+            </div>
+  
+            <!-- Preço -->
+            <div class="mb-3">
+              <label for="estoque_preco" class="form-label"><i class="bi bi-currency-dollar"></i> Preço do Produto</label>
+              <input type="text" class="form-control bg-light" id="estoque_preco" name="estoque_preco" readonly>
+            </div>
+  
+            <!-- Botão de Salvar -->
+            <div class="d-grid gap-2">
+              <button type="submit" id="btn_estoque_modal_salvar" class="btn btn-primary">
+                <i class="bi bi-save"></i> Salvar Alterações
+              </button>
+            </div>
+          </form>
+        </div>
+  
+        <!-- Rodapé da Modal -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

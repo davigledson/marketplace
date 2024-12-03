@@ -1,115 +1,110 @@
 <script>
-console.log('olaaaaaaaaaaaaa')
-class AnuncieController {
-    constructor(formId,msgDivId = 'mensagem_info') {
-        this.form = document.getElementById(formId);
-        
-        this.msgDiv = document.getElementById(msgDivId);
-        this.addEventListeners();
-    }
-
-    addEventListeners() {
-        this.form.addEventListener('submit', this.handleSubmit.bind(this));
-    }
-
-    handleSubmit(event) {
-        event.preventDefault(); // Impede o envio padrão do formulário
-
-       
-        const formData = new FormData(event.target);
-        const dados = {
-            id: formData.get('id_produto_form'), 
-            nome: formData.get('nome'),
-            categoria: formData.get('categoria'),
-            preco: parseFloat(formData.get('preco')),
-            imagem: formData.get('imagem')
-        };
-
-        const url = dados.id ? `/anuncie/edit/${dados.id}` : '/anuncie/add'; 
-        const method = 'POST'; // 
-
-        console.log('dados do formulário:', dados);
-
-        // Envia os dados para o servidor
-        this.enviaRequest(url, method, dados)
-            .then(data => {
-                if (data.success) {
-                    console.log('Produto salvo com sucesso:', data.success);
-                    
-                    //alert('Produto salvo com sucesso!');
-                    
-                    this.exibirMensagem(data.success,"success");
-                    
-                   
-                } else {
-                    console.log('Erro ao salvar produto:', data.error);
+    console.log('olaaaaaaaaaaaaa')
+    class AnuncieController {
+        constructor(formId, msgDivId = 'mensagem_info') {
+            this.form = document.getElementById(formId);
+            this.msgDiv = document.getElementById(msgDivId);
+            this.addEventListeners();
+        }
+    
+        addEventListeners() {
+            this.form.addEventListener('submit', this.handleSubmit.bind(this));
+        }
+    
+        handleSubmit(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+    
+            const formData = new FormData(event.target);
+            const dados = {
+                id: formData.get('id_produto_form'),
+                nome: formData.get('nome'),
+                categoria: formData.get('categoria'),
+                preco: parseFloat(formData.get('preco')),
+                imagem: formData.get('imagem'),
+                // Dados de Estoque
+                quantidade: parseInt(formData.get('quantidade')),
+                disponivel: parseInt(formData.get('disponivel')),
+                vendidos: parseInt(formData.get('vendidos')),
+                reservado: parseInt(formData.get('reservado')),
+                emTransito: parseInt(formData.get('emTransito')),
+                minimo: parseInt(formData.get('minimo')),
+                localizacao: formData.get('localizacao')
+            };
+    
+            const url = dados.id ? `/anuncie/edit/${dados.id}` : '/anuncie/add'; 
+            const method = 'POST'; 
+    
+            console.log('dados do formulário:', dados);
+    
+            // Envia os dados para o servidor
+            this.enviaRequest(url, method, dados)
+                .then(data => {
+                    if (data.success) {
+                        console.log('Produto salvo com sucesso:', data.success);
+                        this.exibirMensagem(data.success, "success");
+                    } else {
+                        console.log('Erro ao salvar produto:', data.error);
+                        alert('Ocorreu um erro ao salvar o produto.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
                     alert('Ocorreu um erro ao salvar o produto.');
-                }
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-                alert('Ocorreu um erro ao salvar o produto.');
-            });
-    }
-
-    enviaRequest(url, method, dados) {
-        return fetch(url, {
-            method: method,
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dados)
-        }).then(response => response.json());
-        
-    }
-
-    deletarProduto(idProduto) {
-        const url = `/anuncie/delete/${idProduto}`;
-
-        this.enviaRequest(url, 'DELETE')
-            .then(data => {
-                if (data.success) {
-                    alert('Produto deletado com sucesso!');
-                    window.location.reload();
-                    this.exibirMensagem("Produto deletado com sucesso!","success");
-                } else {
+                });
+        }
+    
+        enviaRequest(url, method, dados) {
+            return fetch(url, {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dados)
+            }).then(response => response.json());
+        }
+    
+        deletarProduto(idProduto) {
+            const url = `/anuncie/delete/${idProduto}`;
+    
+            this.enviaRequest(url, 'DELETE')
+                .then(data => {
+                    if (data.success) {
+                        alert('Produto deletado com sucesso!');
+                        window.location.reload();
+                        this.exibirMensagem("Produto deletado com sucesso!", "success");
+                    } else {
+                        alert('Ocorreu um erro ao deletar o produto.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
                     alert('Ocorreu um erro ao deletar o produto.');
-                }
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-                alert('Ocorreu um erro ao deletar o produto.');
-            });
-    }
-
-    exibirMensagem(msg, tipo) {
-        if (this.msgDiv) {
-            this.msgDiv.textContent = msg;
-            this.msgDiv.className += `fade show alert-${tipo}`;
-           
-
-            const button = document.createElement('button');
-            button.type = 'button';
-            button.className = 'btn-close';
-            button.setAttribute('data-bs-dismiss', 'alert');
-            button.setAttribute('aria-label', 'Close');
-
-            // Adiciona o botão ao conteúdo da mensagem
-            this.msgDiv.appendChild(button)
-           
-        } else {
-            console.error('Div de mensagem não encontrada.');
+                });
+        }
+    
+        exibirMensagem(msg, tipo) {
+            if (this.msgDiv) {
+                this.msgDiv.textContent = msg;
+                this.msgDiv.className += ` fade show alert-${tipo}`;
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'btn-close';
+                button.setAttribute('data-bs-dismiss', 'alert');
+                button.setAttribute('aria-label', 'Close');
+    
+                // Adiciona o botão ao conteúdo da mensagem
+                this.msgDiv.appendChild(button);
+            } else {
+                console.error('Div de mensagem não encontrada.');
+            }
+        }
+    
+        reiniciarPagina() {
+            window.location.reload();
         }
     }
-
-    reiniciarPagina() {
-        window.location.reload();
-    }
-}
-
-// Instanciar a classe para gerenciar o formulário
-//const produtoController = new ProdutoController('produtoForm');
-
-// A função deletarProduto pode ser chamada diretamente da instância da classe
-//produtoController.deletarProduto(idProduto);
-</script>
+    
+    // Instanciar a classe para gerenciar o formulário
+    // const produtoController = new AnuncieController('produtoForm');
+    </script>
+    

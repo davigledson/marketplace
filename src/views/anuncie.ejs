@@ -59,6 +59,7 @@
                                             
                                         </div>
                                         <div class="d-flex row">
+                                            <a  onclick='mostrarDadosProdutoEstoque(<%= JSON.stringify(produtos[i]) %>)' class="btn btn-info mb-2">Gerenciar estoque</a>
                                                 <a  onclick='mostrarDadosProduto(<%= JSON.stringify(produtos[i]) %>)' class="btn btn-primary mb-2" >Editar</a> 
                                                 <a  onclick="anuncieController.deletarProduto(<%= JSON.stringify(produtos[i].id) %>)" class="btn btn-danger mb-2">Excluir</a>
                                         </div>
@@ -89,6 +90,11 @@
 
     <%- include('cards/cadastro_editar'); -%>
   </div>
+
+  <div >
+
+    <%- include('cards/estoque'); -%>
+  </div>
 </body>
 <script>
 
@@ -101,9 +107,31 @@ function mostrarDadosProduto(produto) {
     document.getElementById('categoria').value = produto.categoria;
     document.getElementById('preco').value = produto.preco;
     document.getElementById('imagem').value = produto.imagem;
+    document.getElementById('quantidade').value = produto.estoque.quantidade;
+    document.getElementById('disponivel').value = produto.estoque.disponivel;
+    document.getElementById('localizacao').value = produto.estoque.localizacao;
+    document.getElementById('reservado').value = produto.estoque.reservado;
+    document.getElementById('emTransito').value = produto.estoque.emTransito;
+    document.getElementById('minimo').value = produto.estoque.minimo;
     document.getElementById('btn_modal_salvar').innerText = 'Editar Produto'
     var formModal = new bootstrap.Modal(document.getElementById('formModal'));
     formModal.show();
+}
+
+function mostrarDadosProdutoEstoque(produto) {
+    document.getElementById('id_estoque_form').value = produto.id;
+    document.getElementById('nome_estoque').value = produto.titulo;
+    document.getElementById('estoque_preco').value = produto.preco;
+    document.getElementById('estoque_quantidade').value = produto.estoque.quantidade;
+    document.getElementById('estoque_disponivel').value = produto.estoque.disponivel;
+    document.getElementById('estoque_localizacao').value = produto.estoque.localizacao;
+    document.getElementById('estoque_reservado').value = produto.estoque.reservado;
+    document.getElementById('estoque_emTransito').value = produto.estoque.emTransito;
+    document.getElementById('estoque_minimo').value = produto.estoque.minimo;
+   
+    document.getElementById('btn_estoque_modal_salvar').innerText = 'Editar dados do estoque do produto'
+    var estoqueModal = new bootstrap.Modal(document.getElementById('estoqueModal'));
+    estoqueModal.show();
 }
 
 // Função para abrir o modal (criação)
@@ -115,6 +143,14 @@ function criarProdutoModal() {
     formModal.show();
 }
 
+// // Função para abrir o modal 
+// function criarEstoqueModal() {
+//     document.getElementById('estoqueForm').reset();
+//     document.getElementById('id_estoque_form').value = '';
+    
+//     var formModal = new bootstrap.Modal(document.getElementById('estoqueModal'));
+//     formModal.show();
+// }
 
 
 </script>
